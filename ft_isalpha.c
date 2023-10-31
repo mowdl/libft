@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-meka <mel-meka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 20:38:23 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/10/31 21:51:26 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/10/31 20:39:44 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/10/31 20:44:46 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
+static int	isupper(int c)
+{
+	return (c >= 'A' && c <= 'Z');
+}
 
-size_t	ft_strlen(const char *s);
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
+static int	islower(int c)
+{
+	return (c >= 'a' && c <= 'z');
+}
 
-void	*ft_memset(void *b, int c, size_t len);
-
-#endif
+int	ft_isalpha(int c)
+{
+	return (isupper(c) || islower(c));
+}

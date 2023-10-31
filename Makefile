@@ -6,7 +6,7 @@
 #    By: mel-meka <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:52:03 by mel-meka          #+#    #+#              #
-#    Updated: 2023/10/04 17:28:09 by mel-meka         ###   ########.fr        #
+#    Updated: 2023/10/31 21:48:38 by mel-meka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,12 @@ RM = rm -f
 
 INCLUDES = .
 
-MY_SOURCES = ft_strlen.c \
+MY_SOURCES = ft_isalpha.c	\
+			 ft_isdigit.c	\
+			 ft_isascii.c	\
+			 ft_isprint.c	\
+			 ft_strlen.c	\
+			 ft_memset.c
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 
