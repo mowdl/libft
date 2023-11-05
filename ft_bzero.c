@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-meka <mel-meka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 17:47:11 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/10/31 21:00:24 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/01 09:18:57 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/01 09:24:34 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// TODO: ask if importing size_t is allowed
-#include <stdlib.h>
-
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	ft_memset(s, 0, n);
 }

@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-meka <mel-meka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 17:47:11 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/10/31 21:00:24 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/04 15:20:48 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/04 15:29:22 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// TODO: ask if importing size_t is allowed
-#include <stdlib.h>
-
-size_t	ft_strlen(const char *s)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
+	unsigned char	*buf;
 
-	i = 0;
-	while (s[i] != '\0')
+	buf = (unsigned char *)s;
+	while (n != 0)
 	{
-		i++;
+		if (*buf == (unsigned char)c)
+			return (buf);
+		buf++;
+		n--;
 	}
-	return (i);
+	return (0);
 }

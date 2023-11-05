@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-meka <mel-meka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 17:47:11 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/10/31 21:00:24 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/01 11:41:49 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/04 17:00:59 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// TODO: ask if importing size_t is allowed
-#include <stdlib.h>
-
-size_t	ft_strlen(const char *s)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	size_t	i;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-	i = 0;
-	while (s[i] != '\0')
+	d = dst;
+	s = src;
+	if (s == d)
 	{
-		i++;
+		return (dst);
 	}
-	return (i);
+	else if (s < d && (void *)(s + n - 1) >= dst)
+	{
+		while (n != 0)
+		{
+			*(d + n - 1) = *(s + n - 1);
+			n--;
+		}
+	}
+	else
+	{
+		ft_memcpy(dst, src, n);
+	}
+	return (dst);
 }

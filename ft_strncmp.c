@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-meka <mel-meka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 17:47:11 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/10/31 21:00:24 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/04 14:43:11 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/04 15:16:40 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// TODO: ask if importing size_t is allowed
-#include <stdlib.h>
-
-size_t	ft_strlen(const char *s)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (i < n && s1[i] && s2[i] && s1[i] == s2[i])
 	{
 		i++;
 	}
-	return (i);
+	if (i == n)
+		return (0);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

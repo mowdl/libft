@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-meka <mel-meka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 17:47:11 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/10/31 21:00:24 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/04 20:07:12 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/04 20:50:55 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// TODO: ask if importing size_t is allowed
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
+	void	*r;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	r = malloc(count * size);
+	if (r == 0)
+		return (r);
+	ft_bzero(r, count * size);
+	return (r);
 }

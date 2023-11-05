@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-meka <mel-meka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 17:47:11 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/10/31 21:00:24 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/04 11:14:37 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/04 11:20:21 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-// TODO: ask if importing size_t is allowed
-#include <stdlib.h>
-
-size_t	ft_strlen(const char *s)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	char	*r;
+	char	*buf;
 
-	i = 0;
-	while (s[i] != '\0')
+	buf = (char *)s;
+	r = 0;
+	while (*buf != '\0')
 	{
-		i++;
+		if (*buf == c)
+			r = buf;
+		buf++;
 	}
-	return (i);
+	if (c == '\0')
+		return (buf);
+	return (r);
 }
