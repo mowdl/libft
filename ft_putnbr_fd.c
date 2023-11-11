@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-meka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 00:38:47 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/11/06 00:49:55 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/11 16:57:51 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/11 17:12:42 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	ft_putlong_fd(long n, int fd)
 		ft_putchar_fd('-', fd);
 		ft_putlong_fd(-n, fd);
 	}
-	else if (n > 10)
+	else if (n > 9)
 	{
 		ft_putlong_fd(n / 10, fd);
 		ft_putlong_fd(n % 10, fd);

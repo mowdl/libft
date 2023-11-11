@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-meka <mel-meka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-meka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 17:18:41 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/11/04 21:13:53 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/11 16:53:14 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/11 16:54:43 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 int	ft_atoi(const char *str)
 {
-	long	r;
-	long	s;
+	long long	r;
+	long long	s;
 
 	while (*str != '\0'
 		&& (*str == ' ' || *str == '\t' || (*str >= 9 && *str <= 13)))

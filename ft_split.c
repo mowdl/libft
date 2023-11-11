@@ -5,67 +5,80 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-meka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 20:02:06 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/11/05 21:16:35 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/11 17:07:00 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/11 23:56:37 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static size_t	count_words(char const *s, char c)
 {
-	size_t	count;
+	size_t	words;
 
-	count = 0;
-	if (*s == '\0')
-		return (0);
-	if (*s != c)
-		count = 1;
-	s++;
+	words = 0;
 	while (*s)
 	{
-		if (s[-1] == c && s[0] != c)
-			count++;
-		s++;
+		while (*s && *s == c)
+			s++;
+		if (*s == '\0')
+			break ;
+		words++;
+		while (*s && *s != c)
+			s++;
 	}
-	return (count);
+	return (words);
 }
 
-static char	**set_arr(char **arr, char const *s, char c, size_t words)
+static size_t	word_len(char const *s, char c)
 {
-	unsigned int	start;
-	size_t			len;
-	size_t			i;
+	size_t	len;
+
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
+}
+
+static char	**free_arr(char **arr, size_t len)
+{
+	size_t	i;
 
 	i = 0;
-	start = 0;
-	while (i < words)
+	while (i < len)
 	{
-		len = 0;
-		while (s[start] == c)
-			start++;
-		while (s[start + len] != c)
-			len++;
-		arr[i] = ft_substr(s, start, len);
-		if (arr[i] == 0)
-			return (0);
-		start += len;
+		free(arr[i]);
 		i++;
 	}
-	arr[i] = NULL;
-	return (arr);
+	free(arr);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	size_t	words;
+	size_t	wlen;
+	size_t	i;
 	char	**arr;
 
 	if (s == NULL)
 		return (NULL);
 	words = count_words(s, c);
-	arr = ft_calloc(words + 1, sizeof(char *));
-	if (arr == 0)
-		return (0);
-	return (set_arr(arr, s, c, words));
+	arr = ft_calloc(sizeof(char **), words + 1);
+	if (arr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < words)
+	{
+		while (*s == c)
+			s++;
+		wlen = word_len(s, c);
+		arr[i] = ft_substr(s, 0, wlen);
+		if (arr[i] == NULL)
+			return (free_arr(arr, i));
+		s += wlen;
+		i++;
+	}
+	return (arr);
 }

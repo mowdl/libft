@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-meka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 01:05:55 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/11/06 01:13:09 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/11 16:55:56 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/11 16:56:08 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*node;
-
-	node = ft_calloc(1, sizeof(t_list));
-	if (node == NULL)
+	if (lst == NULL)
 		return (NULL);
-	node->content = content;
-	return (node);
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }

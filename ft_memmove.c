@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-meka <mel-meka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-meka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 11:41:49 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/11/04 17:00:59 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/11 16:56:58 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/11 21:41:53 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	*unsafe_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t	i;
+
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dst);
+}
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
@@ -23,7 +38,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	{
 		return (dst);
 	}
-	else if (s < d && (void *)(s + n - 1) >= dst)
+	else if (s < d)
 	{
 		while (n != 0)
 		{
@@ -33,7 +48,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	}
 	else
 	{
-		ft_memcpy(dst, src, n);
+		unsafe_memcpy(dst, src, n);
 	}
 	return (dst);
 }

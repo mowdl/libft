@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-meka <mel-meka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-meka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 14:55:02 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/11/04 11:15:40 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/11 17:07:23 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/11 17:12:42 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *s, int c)
 {
 	char	*r;
+	char	ch;
 
+	ch = (char)c;
 	r = (char *)s;
-	while (*r != c)
+	while (*r != ch)
 	{
 		if (*r == '\0')
 			return (0);

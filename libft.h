@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-meka <mel-meka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-meka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 20:38:23 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/11/06 12:46:05 by mel-meka         ###   ########.fr       */
+/*   Created: 2023/11/11 17:12:37 by mel-meka          #+#    #+#             */
+/*   Updated: 2023/11/11 18:34:28 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 
 void	*ft_calloc(size_t count, size_t size);
-char	*strdup(const char *s1);
+char	*ft_strdup(const char *s1);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
