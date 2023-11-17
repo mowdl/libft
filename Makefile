@@ -6,7 +6,7 @@
 #    By: mel-meka <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:52:03 by mel-meka          #+#    #+#              #
-#    Updated: 2023/11/11 23:33:53 by mel-meka         ###   ########.fr        #
+#    Updated: 2023/11/17 19:10:28 by mel-meka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,13 +68,10 @@ $(NAME): $(MY_OBJECTS)
 
 $(BONUS): $(MY_BONUS_OBJ) $(NAME)
 
-$(MY_BONUS_OBJ): %.o: %.c
+.c.o:
 	$(CC) $(FLAGS) $< -c -o $@ -I $(INCLUDES)
 	$(AR) $(NAME) $@
 
-$(MY_OBJECTS): %.o: %.c
-	$(CC) $(FLAGS) $< -c -o $@ -I $(INCLUDES)
-	$(AR) $(NAME) $@
 
 clean:
 	$(RM) $(MY_OBJECTS) $(MY_BONUS_OBJ)
