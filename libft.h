@@ -6,7 +6,7 @@
 /*   By: mel-meka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 17:12:37 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/11/11 18:34:28 by mel-meka         ###   ########.fr       */
+/*   Updated: 2023/11/19 13:22:43 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define LIBFT_H
 
 # include <stddef.h>
-
-# ifndef SIZE_MAX
-#  define SIZE_MAX (size_t)-1
-# endif
 
 size_t	ft_strlen(const char *s);
 int		ft_isalpha(int c);

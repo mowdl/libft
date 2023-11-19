@@ -6,7 +6,7 @@
 /*   By: mel-meka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 17:07:00 by mel-meka          #+#    #+#             */
-/*   Updated: 2023/11/11 23:56:37 by mel-meka         ###   ########.fr       */
+/*   Updated: 2023/11/19 14:03:30 by mel-meka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	words = count_words(s, c);
-	arr = ft_calloc(sizeof(char **), words + 1);
+	arr = ft_calloc(sizeof(char *), words + 1);
 	if (arr == NULL)
 		return (NULL);
 	i = 0;
