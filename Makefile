@@ -58,9 +58,6 @@ all: $(NAME)
 $(NAME):$(OBJ)
 		ar rcs $@ $^
 
-%.o : %.c
-		cc ${CFLAGS} -o $@ -c $^
-
 ${OBJBONUS} : ${SRCBONUS}
 		${CC} ${CFLAGS} -c $^
 		ar rcs ${NAME} ${OBJBONUS}

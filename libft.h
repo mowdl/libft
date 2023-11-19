@@ -15,6 +15,10 @@
 
 # include <stddef.h>
 
+# ifndef SIZE_MAX
+#  define SIZE_MAX (size_t)-1
+# endif
+
 size_t	ft_strlen(const char *s);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
