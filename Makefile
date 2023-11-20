@@ -55,24 +55,24 @@ OBJBONUS = ${SRCBONUS:.c=.o}
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $@ $?
+$(NAME):$(OBJ)
+		ar rcs $@ $^
 
-$(OBJ): $(SRC)
-	${CC} ${CFLAGS} -c $(SRC)
+%.o : %.c
+		cc ${CFLAGS} -o $@ -c $^
 
 ${OBJBONUS} : ${SRCBONUS}
-	${CC} ${CFLAGS} -c $(SRCBONUS)
-	ar rcs ${NAME} ${OBJBONUS}
+		${CC} ${CFLAGS} -c $^
+		ar rcs ${NAME} ${OBJBONUS}
 
 bonus : ${OBJBONUS}
 
 
 clean :
-	rm -f $(OBJ) $(OBJBONUS)
+		rm -f $(OBJ) $(OBJBONUS)
 
 fclean: clean
-	rm -f $(NAME)
+		rm -f $(NAME)
 
 re: fclean all
 
