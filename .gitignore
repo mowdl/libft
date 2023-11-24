@@ -1,5 +1,0 @@
-# ignore binaries
-*.o
-
-# ignore target
-libft.a
